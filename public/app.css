@@ -1,0 +1,21 @@
+:root {
+  --green-strong: #198754;
+  --green-soft: #e8f5e9;
+}
+
+body { background: #f7f9fb; }
+
+.card { border: 0; border-radius: .75rem; }
+
+.navbar-brand { letter-spacing: .2px; }
+
+.btn-success { box-shadow: 0 0.125rem 0.5rem rgba(25, 135, 84, .25); }
+
+.table td, .table th { vertical-align: middle; }
+
+.hero {
+  background: linear-gradient(180deg, var(--green-soft), #ffffff);
+  border: 1px solid rgba(25, 135, 84, .12);
+  border-radius: 1rem;
+  padding: 2rem;
+}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Action du jour • MyGreenIT' %}
+
+{% block body %}
+  <h1 class="mb-4">Action du jour</h1>
+
+  {% if action %}
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h2 class="h4 mb-2">{{ action.title }}</h2>
+
+        <p class="text-muted mb-2">
+          Catégorie :
+          <span class="badge bg-success-subtle text-success">{{ action.category }}</span>
+          • Difficulté :
+          {% for i in 1..5 %}
+            <i class="bi {{ i <= action.difficulty ? 'bi-circle-fill text-warning' : 'bi-circle' }}"></i>
+          {% endfor %}
+        </p>
+
+        <p>{{ action.description }}</p>
+
+        <p class="fw-bold mb-4">
+          Points :
+          <span class="badge bg-primary-subtle text-primary">{{ action.basePoints }}</span>
+        </p>
+
+        <form method="post" action="{{ path('app_do_action', {id: action.id}) }}">
+          <button class="btn btn-success btn-lg">
+            <i class="bi bi-check2-circle"></i> Je l’ai fait ✅
+          </button>
+        </form>
+      </div>
+    </div>
+  {% else %}
+    <div class="alert alert-info">
+      Aucune action disponible. Ajoute-en dans l’admin.
+    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+      <a class="btn btn-outline-secondary" href="{{ path('admin_action_index') }}">
+        Gérer les actions
+      </a>
+    {% endif %}
+  {% endif %}
+{% endblock %}

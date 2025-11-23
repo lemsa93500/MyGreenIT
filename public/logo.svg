@@ -1,0 +1,18 @@
+<svg width="180" height="40" viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MyGreenIT">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2ecc71"/>
+      <stop offset="1" stop-color="#27ae60"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <!-- feuille -->
+    <path d="M20 4c7.5 0 14 6.5 14 14 0 7.7-6.3 14-14 14-4.1 0-8.8-1.9-11.9-4.9 2.1-1.6 6.2-3.4 10.2-3.1 5.6.5 9.4-2.3 11.8-6.3-3.9 2.5-8.5 3.2-12.2 2.1C12.4 18.8 9.7 16 8 12.9 10.7 7.8 15.1 4 20 4z"
+          fill="url(#g)"/>
+    <path d="M9 27c6.8-5.8 14.1-9.9 22-12" stroke="#145a32" stroke-width="1.6" stroke-linecap="round"/>
+    <!-- texte -->
+    <text x="46" y="26" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="20" font-weight="700" fill="#145a32">
+      MyGreenIT
+    </text>
+  </g>
+</svg>

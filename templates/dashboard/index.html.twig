@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mon tableau de bord{% endblock %}
+
+{% block body %}
+  <h1 class="mb-4">Tableau de bord</h1>
+
+  <div class="row g-3 mb-4">
+    <div class="col-md-4">
+      <div class="card p-3">
+        <div class="text-muted">Total points</div>
+        <div class="fs-3 fw-bold">{{ totalPoints }}</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3">
+        <div class="text-muted">Série actuelle</div>
+        <div class="fs-3 fw-bold">{{ currentStreak }}</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3">
+        <div class="text-muted">Meilleur record</div>
+        <div class="fs-3 fw-bold">{{ bestStreak }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card p-3">
+    <h2 class="h4 mb-3">Historique récent</h2>
+    {% if latest is not empty %}
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Action</th>
+              <th class="text-end">Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ua in latest %}
+              <tr>
+                <td>{{ ua.doneAt|date('Y-m-d H:i') }}</td>
+                <td>{{ ua.action.title }}</td>
+                <td class="text-end">
+                  <span class="badge bg-success-subtle text-success border border-success">
+                    +{{ ua.pointsEarned }}
+                  </span>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="text-muted m-0">Aucune action réalisée pour le moment.</p>
+    {% endif %}
+  </div>
+{% endblock %}
